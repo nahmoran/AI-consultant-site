@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Content Editor</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body class="editor-body">
+  <div class="editor-wrap">
+    <h1>AI Consultant Site Content Editor</h1>
+    <p class="small">Edit the fields below, then copy the generated JSON into <code>content/site.json</code>.</p>
+
+    <div class="editor-grid">
+      <section class="panel">
+        <label>Name <input id="name" /></label>
+        <label>Tagline <textarea id="tagline"></textarea></label>
+        <label>About <textarea id="about"></textarea></label>
+        <label>Service 1 Title <input id="s1t" /></label>
+        <label>Service 1 Description <textarea id="s1d"></textarea></label>
+        <label>Service 2 Title <input id="s2t" /></label>
+        <label>Service 2 Description <textarea id="s2d"></textarea></label>
+        <label>Service 3 Title <input id="s3t" /></label>
+        <label>Service 3 Description <textarea id="s3d"></textarea></label>
+        <label>Contact Intro <textarea id="contactIntro"></textarea></label>
+        <label>Email <input id="email" /></label>
+        <label>LinkedIn <input id="linkedin" /></label>
+        <label>Calendar Link <input id="calendar" /></label>
+        <p><button class="btn primary" id="generateBtn" type="button">Generate JSON</button></p>
+      </section>
+
+      <section class="panel">
+        <h2>Generated JSON</h2>
+        <pre id="output"></pre>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const initial = {
+      name: 'Nahim Moran Vera',
+      tagline: 'I help businesses adopt AI through practical training, strategic guidance, and lightweight development support.',
+      about: 'I work with teams that want to use AI more effectively without wasting time on hype. I offer AI training for staff, strategic advice on where AI can help the business, and development support for proof-of-concept tools and workflow improvements.',
+      s1t: 'AI Training',
+      s1d: 'Workshops and team sessions on AI fundamentals, prompting, responsible use, and practical business applications.',
+      s2t: 'AI Strategy',
+      s2d: 'Guidance on where AI fits in your business, what opportunities are worth pursuing, and how to prioritize implementation.',
+      s3t: 'Development Support',
+      s3d: 'Proof-of-concept assistants, internal tools, and simple AI-powered solutions to help teams test ideas quickly.',
+      contactIntro: 'If you want AI support that is practical, understandable, and focused on real business value, get in touch.',
+      email: 'your-email@example.com',
+      linkedin: 'https://www.linkedin.com/',
+      calendar: ''
+    };
+
+    Object.entries(initial).forEach(([key, value]) => {
+      document.getElementById(key).value = value;
+    });
+
+    function generate() {
+      const data = {
+        name: document.getElementById('name').value,
+        tagline: document.getElementById('tagline').value,
+        about: document.getElementById('about').value,
+        services: [
+          { title: document.getElementById('s1t').value, description: document.getElementById('s1d').value },
+          { title: document.getElementById('s2t').value, description: document.getElementById('s2d').value },
+          { title: document.getElementById('s3t').value, description: document.getElementById('s3d').value }
+        ],
+        contactIntro: document.getElementById('contactIntro').value,
+        contact: {
+          email: document.getElementById('email').value,
+          linkedin: document.getElementById('linkedin').value,
+          calendar: document.getElementById('calendar').value
+        }
+      };
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', generate);
+    generate();
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "Nahim Moran Vera",
+  "tagline": "I help businesses adopt AI through practical training, strategic guidance, and lightweight development support.",
+  "about": "I work with teams that want to use AI more effectively without wasting time on hype. I offer AI training for staff, strategic advice on where AI can help the business, and development support for proof-of-concept tools and workflow improvements.",
+  "services": [
+    {
+      "title": "AI Training",
+      "description": "Workshops and team sessions on AI fundamentals, prompting, responsible use, and practical business applications."
+    },
+    {
+      "title": "AI Strategy",
+      "description": "Guidance on where AI fits in your business, what opportunities are worth pursuing, and how to prioritize implementation."
+    },
+    {
+      "title": "Development Support",
+      "description": "Proof-of-concept assistants, internal tools, and simple AI-powered solutions to help teams test ideas quickly."
+    }
+  ],
+  "contactIntro": "If you want AI support that is practical, understandable, and focused on real business value, get in touch.",
+  "contact": {
+    "email": "your-email@example.com",
+    "linkedin": "https://www.linkedin.com/",
+    "calendar": ""
+  }
+}
